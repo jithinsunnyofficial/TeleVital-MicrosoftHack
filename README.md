@@ -18,7 +18,7 @@ We have also built a kiosk module for the same, keeping in mind the necessity to
 2. **Vitals Test:**
 	Vitals test helps users in measuring the readings of the users' SpO$_2$, Heart rate and Respiratory rate with just the help of a webcam. This helps the patients in early detection of symptoms of Covid-19, also at the same time reduce the number of people visiting the hospital for preliminary tests.
 3. **X-Ray Analyzer:**
-	Vitals test helps users in measuring the readings of the users' SpO$_2$, Heart rate and Respiratory rate with just the help of a webcam. This helps the patients in early detection of symptoms of Covid-19, also at the same time reduce the number of people visiting the hospital for preliminary tests.
+	This component of TeleVital allows a user to upload his/her Chest X-Ray as an image, and our pre-trained COVID-19 Chest X-Ray model predicts whether the X-Ray shows signs of COVID-19 or not. A confidence ratio is displayed to the user as well.
 4. **Digital Prescription:**
 	To ease doctors with providing patients, hand-written prescriptions, the digital prescription portal enables the doctors to voice record prescription for patients, and it will further be converted to text and sent directly to patients via mail.
 5. **Patient Prioritizer:** 
