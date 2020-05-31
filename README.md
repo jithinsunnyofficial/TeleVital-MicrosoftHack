@@ -1,4 +1,4 @@
-# Project TeleVital : Enhancing quality of contactless measurement
+# Project TeleVital
 ![homepage](homepage.png)
 
 **TeleVital WebApp:** https://televital.azurewebsites.net/
