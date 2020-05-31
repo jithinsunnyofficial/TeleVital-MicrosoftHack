@@ -24,5 +24,5 @@ def analyze_text(input_text = 'Hi',session_id = 'random'):
     print("Detected intent confidence:", response.query_result.intent_detection_confidence)
     print("Fulfillment text:", response.query_result.fulfillment_text)
     return response.query_result.fulfillment_text
-#Usage of API
+
 #analyze_text('Hi my name is Farhan', 'session1')
