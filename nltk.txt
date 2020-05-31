@@ -1,0 +1,5 @@
+porter_test
+stopwords
+wordnet
+punkt
+rslp
