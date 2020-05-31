@@ -1,0 +1,243 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TeleVital</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+ 
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+        
+            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/responsive.css">
+   </head>
+
+    
+    
+    
+    
+    
+    
+        
+     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- import the real time database SDK -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    
+      
+      <script>
+            var firebaseConfig = {
+    apiKey: "AIzaSyDfnSG9PFjBl-7WzfqNXEsmeUADZUjoNbY",
+    authDomain: "televital-omachack-c1db6.firebaseapp.com",
+    databaseURL: "https://televital-omachack-c1db6.firebaseio.com",
+    projectId: "televital-omachack-c1db6",
+    storageBucket: "televital-omachack-c1db6.appspot.com",
+    messagingSenderId: "1016790452467",
+    appId: "1:1016790452467:web:23c537c7dba61f8a83cf86",
+    measurementId: "G-DF84JXFTQH"
+  };
+        firebase.initializeApp(firebaseConfig)
+     
+      </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   <body>
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+       <main>
+    <div  href="#" style="text-align:right">  
+    <a href="#" class="genric-btn default circle arrow"> Logout &nbsp; &nbsp; <i class="fa fa-sign-out"></i> <span class="lnr lnr-arrow-right"></span></a> 
+</div>  
+        
+        
+        
+        
+        <!-- Services Area Start -->
+        <section class="service-area">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    
+                    <div class="col-lg-6">
+                        <div class="section-tittle text-center">
+                         <h3>Vital Test</h3>
+                            <h4>SpO<sub>2</sub> </h4>
+                        </div>
+                    </div>
+                </div>
+                
+<center>
+<div id="container">
+<video width="320" height="240" autoplay="true" id="video">
+</video>
+</div></center>
+   <center>           
+       <button onclick="capture()" class="btn btn-primary mt-3 py-3 px-5">Measure</button> <br> </br>
+
+<center> <canvas id="canvas" style="overflow:auto"></canvas> </center>
+                
+   <button class="btn btn-primary mt-3 py-3 px-5"  id="next" onclick="opene()">Next</button> <br> </br>
+ <input type="hidden" id="printresult"> 
+            
+</center>  
+           
+           
+           
+           
+   <script>
+
+const button = document.getElementById("next");
+button.disabled = true;
+    
+    var userno2 = sessionStorage.getItem("userno");
+console.log(userno2); 
+    
+function enable()
+    {
+     fetch("https://spo2-omachack.herokuapp.com/spo/"+userno2);
+      document.getElementById("next").disabled = false;
+    //    window.open("Patient Dashboard.html","_self");
+        
+    }
+    
+    
+    function opene()
+    {
+   
+     window.open("Vitals Result.html","_self");
+     //   console.log("1");
+        
+    }
+
+</script>                
+                    
+     
+           
+     <script>    
+    var video = document.querySelector("#video");
+ if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+          console.log("Something went wrong!");
+        });
+ }
+var concresult="";    
+ var resultb64="";
+ function capture() {   
+ for (i = 0; i < 3; i++) {
+concresult=concresult+";"+calc();
+}
+       
+var userno1 = sessionStorage.getItem("userno");
+console.log(userno1);
+
+     
+var temp= Math.random() * (99.5 - 97.7) + 97.7; 
+     
+     
+
+ firebase.database().ref("Appointments/" + userno1).update({
+            
+    spbase64: document.value=concresult,
+    temp: document.value=temp.toFixed(2),
+            }); 
+     
+     setTimeout(function(){ alert("Click Next to Continue");
+                      enable();},5000);   
+     
+ }
+    
+    function calc()
+    {
+     var canvas = document.getElementById('canvas');     
+    var video = document.getElementById('video');
+    canvas.width = 320;
+    canvas.height = 240;
+    canvas.getContext('2d').drawImage(video, 0, 0,video.videoWidth,video.videoHeight,0,0,320,240);  
+    resultb64=canvas.toDataURL();
+    document.getElementById("printresult").innerHTML = canvas.toDataURL();
+     var str = resultb64;
+     var res = str.substring(22,);
+     return res;
+    }
+         
+
+
+     
+    
+  document.getElementById("printresult").innerHTML = resultb64;
+         
+ </script>     
+                
+   </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <!-- Date Picker -->
+        <script src="./assets/js/gijgo.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+		<script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+		<script src="./assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+        
+    </body>
+</html>

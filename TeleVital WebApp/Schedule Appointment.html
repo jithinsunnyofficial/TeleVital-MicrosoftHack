@@ -1,0 +1,416 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TeleVital</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+ 
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+        
+            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/responsive.css">
+   </head>
+
+<!--
+    
+    firebase config 1
+    
+-->
+ 
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- import the real time database SDK -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    
+      
+      <script>
+            var firebaseConfig = {
+    apiKey: "AIzaSyDfnSG9PFjBl-7WzfqNXEsmeUADZUjoNbY",
+    authDomain: "televital-omachack-c1db6.firebaseapp.com",
+    databaseURL: "https://televital-omachack-c1db6.firebaseio.com",
+    projectId: "televital-omachack-c1db6",
+    storageBucket: "televital-omachack-c1db6.appspot.com",
+    messagingSenderId: "1016790452467",
+    appId: "1:1016790452467:web:23c537c7dba61f8a83cf86",
+    measurementId: "G-DF84JXFTQH"
+  };
+        firebase.initializeApp(firebaseConfig)
+     
+      </script>
+    
+<!--
+  end of firebase config 1
+    
+-->
+    
+    
+    
+    
+    
+   <body>
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+
+    <main>
+      
+    <div  href="#" style="text-align:right">  
+    <a href="Patient%20Dashboard.html" class="genric-btn default circle arrow"> Back to Dashboard &nbsp; &nbsp; <i class="fa fa-sign-out"></i> <span class="lnr lnr-arrow-right"></span></a> 
+</div>  
+        
+        
+        
+        
+        <!-- Services Area Start -->
+        <section class="service-area">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    
+                    <div class="col-lg-6">
+                        <div class="section-tittle text-center">
+                         <h2>Schedule<br>Appointment</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                 
+                
+                
+                <div class="row">
+                    <div class="col-50">
+                      
+                    </div>
+                    <div class="col-lg-8">
+                        <form>
+                            <div class="row">
+                                   <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                    </div>
+                                </div>
+                                
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="message" id="symptoms" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Symptoms"></textarea>
+                                    </div>
+                                </div>
+                             
+                         
+                            
+                                                  <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="height" id="height" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Height (cms)'" placeholder="Height (cms)">
+                                    </div>
+                                </div>
+                                
+                                  <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="email" id="weight" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Weight (Kgs)'" placeholder="Weight (Kgs)">
+                                    </div>
+                                </div>  
+                  
+                                
+                                             
+                                  <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="email" id="age" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Age'" placeholder="Age">
+                                    </div>
+                                </div>  
+                                
+                                
+          <div class="col-sm-4">
+                                    <div class="form-group">
+
+        <select id="gender" name="gender">
+          <option disabled="disabled" selected="selected">Gender</option>
+          <option value="Male"> Male </option>
+          <option value="Female"> Female </option>
+          <option value="Other"> Other </option> 
+        </select>
+                                
+                                    </div></div>
+                                
+                                <br></br> <br> 
+                                 
+                                
+                                
+                                
+                                
+                                        <div class="col-sm-3">
+                                    <div class="form-group">
+                 <select id="cough" name="cough">
+          <option disabled="disabled" selected="selected">Cough</option>
+          <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+             <option value="2"> 2 </option>
+             <option value="3"> 3 </option>
+        </select>
+                                
+                                    </div></div>
+                                
+                                
+                  
+                                
+                                      <div class="col-sm-3">
+                                    <div class="form-group">
+                 <select id="sorethroat" name="cough">
+          <option disabled="disabled" selected="selected">Sore Throat</option>
+          <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+             <option value="2"> 2 </option>
+             <option value="3"> 3 </option>
+        </select>
+                                
+                                    </div></div>
+                                
+                                
+                                
+                                           <div class="col-sm-4">
+                                    <div class="form-group">
+                 <select id="breathingdiff" name="cough">
+          <option disabled="disabled" selected="selected">Breathing difficulty </option>
+          <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+             <option value="2"> 2 </option>
+             <option value="3"> 3 </option>
+        </select>
+                                               </div></div>  <br></br><br>
+                           
+                                
+                                
+                                           <div class="col-sm-3">
+                                    <div class="form-group">
+                 <select id="tiredness" name="cough">
+          <option disabled="disabled" selected="selected">Tiredness</option>
+          <option value="0"> 0 </option>
+            <option value="1"> 1 </option>
+             <option value="2"> 2 </option>
+             <option value="3"> 3 </option>
+        </select>
+                                
+                                    </div></div>
+                             
+                                
+                                           <div class="col-sm-6">
+                                    <div class="form-group">
+                 <select id="precon" name="cough">
+          <option disabled="disabled" selected="selected">Pre exisiting Condition (eg: Asthama etc)</option>
+          <option value="Yes"> Yes </option>
+            <option value="No"> No </option>
+        </select>
+                                
+                                    </div></div>
+                                
+                                           <div class="col-sm-3">
+                                    <div class="form-group">
+                 <select id="pregnant" name="cough">
+          <option disabled="disabled" selected="selected">Pregnant </option>
+          <option value="Yes"> Yes </option>
+            <option value="No"> No </option>
+        </select>
+                                
+                                    </div></div>
+                                
+    
+                                
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="button" onclick="redirect()" class="button button-contactForm boxed-btn">Schedule</button>
+                                
+<!--                               <p id="demo"><font color="black"></font></p>-->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <h3> Instructions</h3>
+                        <p> <b>* </b>Please make sure to fill all the relevant details. <br></br>
+            <b>* </b>After scheduling an appointment you are requested to take a vital test.</p> <br></br><br></br>
+                               <div class="media contact-info">
+                                   
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                           <h3>support@televital.com</h3>
+                                <p>Send us your query anytime!</p>
+                            </div>
+                        </div>
+        
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+
+
+<!--start of Firebase writing data-->
+
+<script>
+function redirect()
+    {
+        
+        
+var today = new Date();
+var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+ today.getFullYear();         
+        
+var temp= Math.random() * (99.5 - 97.7) + 97.7; 
+        
+var userno1 = sessionStorage.getItem("userno");
+console.log(userno1);
+
+        firebase.database().ref("Appointments/" + userno1).update({
+            
+    name: document.value=document.getElementById("name").value,
+    email: document.value=document.getElementById("email").value,
+    symptoms: document.value=document.getElementById("symptoms").value,
+    height: document.value=document.getElementById("height").value,
+    weight: document.value=document.getElementById("weight").value,
+    gender: document.value=document.getElementById("gender").value,
+    cough: document.value=document.getElementById("cough").value,
+    sorethroat: document.value=document.getElementById("sorethroat").value,
+    breathingdiff: document.value=document.getElementById("breathingdiff").value,
+    age: document.value=document.getElementById("age").value,
+    tiredness: document.value=document.getElementById("tiredness").value,
+    precon: document.value=document.getElementById("precon").value,
+    pregnant: document.value=document.getElementById("pregnant").value,
+    spo2: document.value="95",
+    hr: document.value="74",
+    rr: document.value="16",
+    temp: document.value=temp.toFixed(2),
+    spbase64: document.value="",
+    hrbase64: document.value="",
+    xraybase64: document.value="",
+    score: document.value=0,
+    vtext: document.value="",
+  }); 
+        
+        
+        
+        
+    
+        
+        
+        
+        
+   firebase.database().ref("Consultation/" + userno1).update({ 
+    aid: document.value=userno1,   
+    bname: document.value=document.getElementById("name").value,
+    cemail: document.value=document.getElementById("email").value,
+       dage: document.value=document.getElementById("age").value,
+    esymptoms: document.value=document.getElementById("symptoms").value,
+    fspo2: document.value="95",
+    fhr: document.value="74",
+    frr: document.value="16",
+    ftemp: document.value=temp.toFixed(2),
+    gscore: document.value=0,
+    hdate: document.value=date,
+    idiagnosis: document.value="",
+    jstatus: document.value="Upcoming",
+  }); 
+        
+        
+        
+        
+        
+        
+        
+        
+    window.alert("Redirecting to take Vital Test ...");
+        setTimeout(function(){window.open("Instructions for HRnRR.html","_self"); }, 2000);    
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+end of writing to firebase 
+
+-->
+
+
+                
+                
+                
+       <!-- Footer End-->
+
+   </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <!-- Date Picker -->
+        <script src="./assets/js/gijgo.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+		<script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+		<script src="./assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+        
+    </body>
+</html>

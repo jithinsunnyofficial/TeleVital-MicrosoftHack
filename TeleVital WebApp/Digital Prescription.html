@@ -1,0 +1,488 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TeleVital</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="assets/css/flaticon.css">
+            <link rel="stylesheet" href="assets/css/slicknav.css">
+            <link rel="stylesheet" href="assets/css/animate.min.css">
+            <link rel="stylesheet" href="assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+            <link rel="stylesheet" href="assets/css/slick.css">
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/responsive.css">
+   </head>
+
+    
+    
+    
+    
+        
+     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- import the real time database SDK -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    
+      
+      <script>
+            var firebaseConfig = {
+    apiKey: "AIzaSyDfnSG9PFjBl-7WzfqNXEsmeUADZUjoNbY",
+    authDomain: "televital-omachack-c1db6.firebaseapp.com",
+    databaseURL: "https://televital-omachack-c1db6.firebaseio.com",
+    projectId: "televital-omachack-c1db6",
+    storageBucket: "televital-omachack-c1db6.appspot.com",
+    messagingSenderId: "1016790452467",
+    appId: "1:1016790452467:web:23c537c7dba61f8a83cf86",
+    measurementId: "G-DF84JXFTQH"
+  };
+        firebase.initializeApp(firebaseConfig)
+     
+      </script>
+    
+    
+    
+    
+    
+    
+   <body>
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Preloader Start -->
+
+    <!-- Preloader Start -->
+
+
+    <main>
+      
+    <div  href="Doctor-Dashboard.html" style="text-align:right">  
+    <a href="Doctor-Dashboard.html" class="genric-btn default circle arrow"> Back to Dashboard &nbsp; &nbsp; <i class="fa fa-sign-out"></i> <span class="lnr lnr-arrow-right"></span></a> 
+</div>  
+        
+        
+        
+        
+        <!-- Services Area Start -->
+        <section class="service-area">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    
+                    <div class="col-lg-6">
+                        <div class="section-tittle text-center">
+                         <h2>Voice<br>Prescription</h2> 
+                            <p>The doctor has the complete authority to prescribe the medicine and the system does not recommend / suggest any medicines.</p>
+                            <h3>Patient Details</h3>
+                            <br>
+                            
+ 
+  <label for="fname">Name : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="name" name="fname" size="40"  disabled="disabled"><br>
+                                  <label for="fname">Email :  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+  <input type="text" id="email" name="fname" size="40" disabled="disabled"><br>
+                                
+                              <label for="fname">Symptoms : </label>
+  <input type="text" id="symptoms" name="fname" size="40"  disabled="disabled"><br>
+                                 <label for="fname">Vitals : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="vitals" name="fname" size="40"  disabled="disabled">
+<!--
+                                
+                                <br>
+                                 <label for="fname">Risk Score : &nbsp;</label>
+  <input type="text" id="score" name="fname" size="40"  disabled="disabled">
+-->
+                                
+                                <br>
+                                 <label for="fname">Date : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="datee" name="fname" size="40" disabled="disabled">
+                                
+                                <br><br>
+<!--
+                    <label for="fname">Voice Based Doctor's Analysis : &nbsp;</label><br>
+                                        <textarea id="note-textarea" rows="5" cols="60"></textarea>
+-->
+           
+        <div class="container">
+            <div class="app"> 
+                <div class="input-single">
+                    <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6" cols="60"></textarea>
+                </div>         
+                <button id="start-record-btn" title="Start Recording"><font color="black">Start Recognition </font></button>
+                <button id="pause-record-btn" title="Pause Recording"><font color="black">Pause Recognition</font></button>
+                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+
+            </div>
+
+        </div>
+                            
+                            
+
+                            <input type="button" id="button" onclick="gen()" value="Generate Prescription">  <br>   </br>                      
+<p id="p1"> &nbsp; </p>
+
+
+                            
+                             <input type="button" id="button" onclick="sh()" value="Share Prescription">
+                            
+<!--                            <input id="b2" type='button' onclick='addParagraphs()' value='Add P2' />-->
+                        <br></br>         
+                            
+                        </div>
+                    </div>
+                </div>
+       
+      <script>
+          
+
+          
+            var pnoo = sessionStorage.getItem("patientno");
+console.log(pnoo);
+    
+          
+                    function sh()
+          {
+    fetch("https://share-prescription.herokuapp.com/share-pres/"+pno);         
+    setTimeout(function(){ 
+        alert("Email sent!");
+          }, 1000); 
+              
+          }
+          
+          
+          
+          
+         function gen()
+          {
+             
+            
+              
+    firebase.database().ref("Appointments/" + pnoo).update({
+            
+    vtext: document.value=document.getElementById("note-textarea").value,});
+              
+   fetch("https://voice-pres-omac.herokuapp.com/prescribe/"+pnoo);
+    
+              
+    setTimeout(function(){ 
+        alert("Generating Prescription ...");
+          }, 1000); 
+              
+              
+    firebase.database().ref("Consultation/" + pnoo).update({
+            
+    idiagnosis: document.value=document.getElementById("note-textarea").value,
+        jstatus: document.value="Completed"
+    
+    });    
+  
+          
+      setTimeout(function(){ 
+        alert("Prescription Generated");
+          printPDF();}, 2000);     
+  
+          }
+            
+     </script>   
+        
+        
+        
+<!--
+        
+        genn pdf
+        
+-->
+        
+       
+        
+        
+        
+        
+        
+        	<script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js" 
+	  integrity="sha256-vIL0pZJsOKSz76KKVCyLxzkOT00vXs+Qz4fYRVMoDhw="
+	  crossorigin="anonymous">
+	</script>
+
+	<script>
+        
+var pno = sessionStorage.getItem("patientno");
+console.log(pno);
+  
+var name ;  var emails; var symptoms; var datee;   var vitals; var diag; var medicines; var dosages; var diagnosis; var advices;
+        
+  var database = firebase.database();
+                    
+  var vitals = database.ref("Appointments/" + pno);
+   vitals.on('value', function(snapshot) {
+      
+     
+     name=snapshot.val().name;
+      document.getElementById("name").value=name;
+      
+      emails=snapshot.val().email;
+       document.getElementById("email").value=email;
+      
+       symptoms=snapshot.val().symptoms;
+       document.getElementById("symptoms").value=symptoms;
+       
+        var hr=snapshot.val().hr;
+        var rr=snapshot.val().rr;
+        var sp=snapshot.val().spo2;
+       // var temp=snapshot.val().ftemp;
+       
+       vitals="HR: "+hr+"; RR: "+rr+"; SP: "+sp+"";
+       
+       document.getElementById("vitals").value=vitals; 
+     
+       var risk=snapshot.val().gscore;
+       document.getElementById("score").value=risk;
+      
+       
+       datee=snapshot.val().date;
+       document.getElementById("datee").value=datee;
+       
+       diag=snapshot.val().vtext;
+       document.getElementById("note-textarea").value=diag;
+       
+       medicines=snapshot.val().medicines;
+       dosages=snapshot.val().dosages;
+       diagnosis=snapshot.val().diagnosis;
+        advices=snapshot.val().advices;
+       
+       for (i=0; i<=diagnosis.length-1; i++)
+           {
+                diagf=diagf+" "+diagnosis[i]
+               
+           }
+        for (i=0; i<=medicines.length-1; i++)
+           {
+                medf=medf+" "+medicines[i];
+               
+           }
+        for (i=0; i<=dosages.length-1; i++)
+           {
+                dosf=dosf+" "+dosages[i];
+               
+           }
+        for (i=0; i<=advices.length-1; i++)
+           {
+                
+               adv=adv+""+advices[i];           }
+     
+       
+ //     document.getElementById("demo").innerHTML =snapshot.val().hr;
+
+  });
+ 
+          var dateee = database.ref("Consultation/" + pno);
+   dateee.on('value', function(snapshot) {
+       
+        datee=snapshot.val().hdate;
+       document.getElementById("datee").value=datee;
+       
+ //     document.getElementById("demo").innerHTML =snapshot.val().hr;
+
+  });
+        
+  var diagf=""; var medf=""; var dosf=""; var adv="";  
+        
+var doc = new jsPDF()
+
+
+function printPDF() {
+       
+doc.setFontSize(40)
+doc.text(80, 30, 'TeleVital')
+doc.setFontSize(20)
+doc.text(70, 50, 'Voice based Prescription')
+doc.setFontSize(15)
+doc.text(50, 65, 'Date of appointment:')
+doc.text(100, 65,datee)
+doc.setFontSize(25)
+doc.text(50, 80, 'Name:')
+doc.text(100, 80, name)   
+doc.text(50, 100, 'Email:')
+doc.text(100, 100, emails)
+doc.text(50, 120, 'Symptoms:')
+doc.text(100, 120,symptoms)
+doc.text(50, 140, 'Vitals:')
+doc.text(100, 140, vitals)
+doc.setFontSize(15)   
+doc.text(50, 160, 'Diagnosis:')
+doc.text(50, 170, diagf)
+doc.text(50, 180, 'Medicine and Dosage:')
+doc.text(50, 190, medf)
+doc.text(50, 200, dosf)
+doc.text(50, 210, 'Advice:')
+doc.text(50, 220,adv )
+doc.setFontSize(15)
+doc.text(70, 250, 'Prescription by Dr.Demo Doctor')
+doc.save();
+
+		}
+
+	</script>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+<!--
+        
+        end of gen pdf
+        
+-->
+        
+        
+        
+            
+<!--
+
+firebase retrieving 
+
+
+-->
+
+
+<script>
+                           
+var pno = sessionStorage.getItem("patientno");
+console.log(pno);
+    
+  var database = firebase.database();
+   var datee;                 
+  var vitals = database.ref("Consultation/" + pno);
+   vitals.on('value', function(snapshot) {
+      
+     
+      var name=snapshot.val().bname;
+      document.getElementById("name").value=name;
+      
+      var email=snapshot.val().cemail;
+       document.getElementById("email").value=email;
+      
+       var symptoms=snapshot.val().esymptoms;
+       document.getElementById("symptoms").value=symptoms;
+       
+        var hr=snapshot.val().fhr;
+        var rr=snapshot.val().frr;
+        var sp=snapshot.val().fspo2;
+        var temp=snapshot.val().ftemp;
+       
+       var vitals="HR: "+hr+"; RR: "+rr+"; SP: "+sp+"; T: "+temp;
+       
+       document.getElementById("vitals").value=vitals; 
+     
+       var risk=snapshot.val().gscore;
+       document.getElementById("score").value=risk;
+      
+       
+        datee=snapshot.val().hdate;
+       document.getElementById("datee").value=datee;
+       
+ //     document.getElementById("demo").innerHTML =snapshot.val().hr;
+
+  });
+                
+                
+// fetch("to calculate the priority score");               
+                
+                
+                </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+<!--
+        
+        
+        end of firebase retrieving
+
+
+-->
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+
+        <!-- Only used for the demos ads. Please ignore and remove. --> 
+        <script src="https://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
+                       
+   </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <!-- Date Picker -->
+        <script src="./assets/js/gijgo.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+		<script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+		<script src="./assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+        
+    </body>
+</html>

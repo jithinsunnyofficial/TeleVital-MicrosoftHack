@@ -1,0 +1,264 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TeleVital</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+ 
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+        
+            <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/responsive.css">
+   </head>
+
+    
+    
+    
+     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- import the real time database SDK -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+    
+      
+      <script>
+            var firebaseConfig = {
+    apiKey: "AIzaSyDfnSG9PFjBl-7WzfqNXEsmeUADZUjoNbY",
+    authDomain: "televital-omachack-c1db6.firebaseapp.com",
+    databaseURL: "https://televital-omachack-c1db6.firebaseio.com",
+    projectId: "televital-omachack-c1db6",
+    storageBucket: "televital-omachack-c1db6.appspot.com",
+    messagingSenderId: "1016790452467",
+    appId: "1:1016790452467:web:23c537c7dba61f8a83cf86",
+    measurementId: "G-DF84JXFTQH"
+  };
+        firebase.initializeApp(firebaseConfig)
+     
+      </script>
+    
+
+
+    
+    
+    
+   <body>
+       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+       <main>
+    <div  href="#" style="text-align:right">  
+    <a href="index.html" class="genric-btn default circle arrow"> Logout &nbsp; &nbsp; <i class="fa fa-sign-out"></i> <span class="lnr lnr-arrow-right"></span></a> 
+</div>  
+        
+        
+        
+        
+        <!-- Services Area Start -->
+        <section class="service-area">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row d-flex justify-content-center">
+                    
+                    <div class="col-lg-6">
+                        <div class="section-tittle text-center">
+                         <h3>Vital Test</h3>
+                            <h4>Results</h4>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+                
+    <center>           
+                
+ <br>
+  <label for="fname">Heart Rate : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="hr" name="fname" size="40" disabled="disabled"><br>
+                
+    <br>
+  <label for="fname">Respiratory Rate : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="rr" name="fname" size="40" disabled="disabled"><br>             
+                
+ <br>
+  <label for="fname">SpO<sub>2</sub>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" id="sp" name="fname" size="40" disabled="disabled"><br>        
+     
+        
+<!--
+         <br>
+  <label for="fname">Body Temperature: &nbsp;</label>
+  <input type="text" id="temp" name="fname" size="40" disabled="disabled"><br>
+-->
+        <br>
+        <br>
+        
+        <p><a class="btn btn-primary mt-3 py-3 px-5" onclick="myFunction()" >Share Result</a></p>
+ <input type="hidden" id="printresult"> 
+        
+        <p><a href="Patient%20Dashboard.html" class="btn btn-primary mt-3 py-3 px-5">Return to Dashboard</a></p>
+        <br>
+                <p id="demo"></p>
+        
+   </center>               
+                
+                
+ 
+                <script>
+                
+                
+var userno1 = sessionStorage.getItem("userno");
+console.log(userno1);
+    
+  var database = firebase.database();
+                    
+  var vitals = database.ref("Appointments/" + userno1);
+   vitals.on('value', function(snapshot) {
+      
+      console.log(snapshot.val().spo2);
+      console.log(snapshot.val().hr);
+      console.log(snapshot.val().rr);
+ //document.getElementById("spval").value = snapshot.val().sp;
+//document.getElementById("hrval").value = snapshot.val().hr;
+ //document.getElementById("rrval").value = snapshot.val().rr;
+      
+      var hrvalue=snapshot.val().hr;
+      document.getElementById("hr").value=hrvalue;
+      
+      var rrvalue=snapshot.val().rr;
+       document.getElementById("rr").value=rrvalue;
+      
+       var spvalue=snapshot.val().spo2;
+       document.getElementById("sp").value=spvalue;
+       
+       var tempr=snapshot.val().temp;
+       document.getElementById("temp").value=tempr;
+      
+ //     document.getElementById("demo").innerHTML =snapshot.val().hr;
+
+  });
+                
+var fet="https://calc-score.herokuapp.com/score/"+userno1;                
+ fetch(fet);               
+                
+                
+                </script>
+                
+                
+                
+                
+                
+                
+                
+                
+                <script> 
+                
+                
+                
+function myFunction() {
+var userno1 = sessionStorage.getItem("userno");    
+        
+  var email = prompt("Please enter the doctor's email address.", "example@example.com");
+  if (email != null) {
+
+      firebase.database().ref("Appointments/" + userno1).update({       
+      semail: document.value=email,
+            }); 
+      
+      
+      
+setTimeout(doSomething, 3000);
+
+function doSomething() {
+var f="https://patientreport-omac.herokuapp.com/mail/"+userno1.toString();
+ fetch(f);
+    
+}
+      
+    document.getElementById("demo").innerHTML =
+    "Email successfully sent to " + email + "";
+    
+  }
+}
+                    
+                    
+                    
+                
+                
+                
+                </script>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+   </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="./assets/js/jquery.slicknav.min.js"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="./assets/js/owl.carousel.min.js"></script>
+        <script src="./assets/js/slick.min.js"></script>
+        <!-- Date Picker -->
+        <script src="./assets/js/gijgo.min.js"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="./assets/js/wow.min.js"></script>
+		<script src="./assets/js/animated.headline.js"></script>
+        <script src="./assets/js/jquery.magnific-popup.js"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="./assets/js/jquery.scrollUp.min.js"></script>
+        <script src="./assets/js/jquery.nice-select.min.js"></script>
+		<script src="./assets/js/jquery.sticky.js"></script>
+        
+        <!-- contact js -->
+        <script src="./assets/js/contact.js"></script>
+        <script src="./assets/js/jquery.form.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
+        <script src="./assets/js/mail-script.js"></script>
+        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="./assets/js/plugins.js"></script>
+        <script src="./assets/js/main.js"></script>
+        
+    </body>
+</html>
