@@ -1,24 +1,16 @@
 import pyrebase
 from flask import Flask, request
 from flask_restful import Resource, Api
-
+import pickle
 
 app = Flask(__name__)
 api = Api(app)
  
 class testabusive(Resource):
 	def get(self, user_index):
-		config = {
-		    "apiKey": "AIzaSyDfnSG9PFjBl-7WzfqNXEsmeUADZUjoNbY",
-		    "authDomain": "televital-omachack-c1db6.firebaseapp.com",
-		    "databaseURL": "https://televital-omachack-c1db6.firebaseio.com",
-		    "projectId": "televital-omachack-c1db6",
-		    "storageBucket": "televital-omachack-c1db6.appspot.com",
-		    "messagingSenderId": "1016790452467",
-		    "appId": "1:1016790452467:web:23c537c7dba61f8a83cf86",
-		    "measurementId": "G-DF84JXFTQH"
-				}
-
+		credentials_json = open("credentials.json","rb")
+		config = pickle.load(credentials_json)
+		credentials_json.close()
 		firebase = pyrebase.initialize_app(config)
 		db = firebase.database()
 		nm = db.child("Appointments/").child(user_index).get()
