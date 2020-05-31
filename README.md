@@ -20,7 +20,7 @@ We have also built a kiosk module for the same, keeping in mind the necessity to
 3. **X-Ray Analyzer:**
 	This component of TeleVital allows a user to upload his/her Chest X-Ray as an image, and our pre-trained COVID-19 Chest X-Ray model predicts whether the X-Ray shows signs of COVID-19 or not. A confidence ratio is displayed to the user as well.
 4. **Digital Prescription:**
-	To ease doctors with providing patients, hand-written prescriptions, the digital prescription portal enables the doctors to voice record prescription for patients, and it will further be converted to text and sent directly to patients via mail.
+	To ease doctors with providing patients, hand-written prescriptions, the digital prescription portal enables the doctors to voice record prescription for patients, and it will further be converted to text and sent directly to patients as a PDF via mail.
 5. **Patient Prioritizer:** 
 Understanding the rapid increase in cases of Covid-19, patient prioritizer portal enables hospitals in identifying the high risk patients and giving them the care accordingly.
 	 
@@ -28,8 +28,10 @@ Understanding the rapid increase in cases of Covid-19, patient prioritizer porta
 ## Technology stack
 
 1. **Frontend**: HTML, CSS, JavaScript
-2. **Backend**: Python - OpenCV, Flask, Numpy, Pandas, Scikit-learn, Pillow, Requests
-3. **Database**: Firebase
+2. **Backend**: a) Python - Tensorflow, OpenCV, Flask, Spacy, NLTK, Numpy, Pandas, Scikit-learn, Pillow
+		b) WebRTC
+		c) Node.js
+3. **Database**: Azure SQL Database
 
 
 ## Contributors
