@@ -19,6 +19,8 @@ import concurrent.futures
 from flow import flow
 from playsound import playsound
 from dialogflow_api import analyze_text
+from keras.models import load_model
+from label_detect import classify_face
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
