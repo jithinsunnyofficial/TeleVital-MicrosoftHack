@@ -29,9 +29,9 @@ Understanding the rapid increase in cases of Covid-19, patient prioritizer porta
 
 1. **Frontend**: HTML, CSS, JavaScript
 2. **Backend**: 
-		* Python - Tensorflow, OpenCV, Flask, Spacy, NLTK, Numpy, Pandas, Scikit-learn, Pillow
-		* WebRTC
-		* Node.js
+	* Python - Tensorflow, OpenCV, Flask, Spacy, NLTK, Numpy, Pandas, Scikit-learn, Pillow
+	* WebRTC
+	* Node.js
 3. **Database**: Azure SQL Database
 
 
