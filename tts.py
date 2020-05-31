@@ -4,7 +4,6 @@ directory with this command: python TTSSample.py
 '''
 import os, requests, time
 from xml.etree import ElementTree
-
 #subscription key for the Cognitive Service. Do not share with anyone.
 subscription_key = '<cognitive-subscription-key>'
 '''
