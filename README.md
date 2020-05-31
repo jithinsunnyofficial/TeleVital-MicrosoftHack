@@ -27,12 +27,16 @@ Understanding the rapid increase in cases of Covid-19, patient prioritizer porta
 
 ## Technology stack
 
-1. **Frontend**: HTML, CSS, JavaScript
+1. **Frontend**: 
+	* HTML 
+	* CSS 
+	* Angular.js
 2. **Backend**: 
 	* Python - Tensorflow, OpenCV, Flask, Spacy, NLTK, Numpy, Pandas, Scikit-learn, Pillow
 	* WebRTC
 	* Node.js
-3. **Database**: Azure SQL Database
+3. **Database**: 
+	* Azure SQL Database
 
 
 ## Contributors
