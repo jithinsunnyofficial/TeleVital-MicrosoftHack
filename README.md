@@ -45,7 +45,7 @@ Understanding the rapid increase in cases of Covid-19, patient prioritizer porta
 	* Azure SQL Database
 
 ## Models
-To download the models used for Face recognition, Mask detection and X-Ray analyzer kindly download from this url: [Models data](https://drive.google.com/drive/folders/1ZZXm9gnbYv_a2QAabLy1eAai79i4xPdG?usp=sharing)
+To download the models for Face recognition, Mask detection and X-Ray analyzer kindly download from this url: [Models data](https://drive.google.com/drive/folders/1ZZXm9gnbYv_a2QAabLy1eAai79i4xPdG?usp=sharing)
 
 
 ## Contributors
