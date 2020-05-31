@@ -81,6 +81,15 @@ def detect_face(frameCount):
 	finalFlag = True
 	while True:
 		ret, frame = vs.read()
+
+		height,width = frame.shape[:2]
+		label = classify_face(frame)
+		if(label == 'with_mask'):
+		    print("Mask detected")
+		else:
+		    print("No mask detected")   
+		cv2.putText(frame,str(label),(100,height-20), font, 1,(255,255,255),1,cv2.LINE_AA)
+
 		try:
 			x = th.is_alive()
 			if x == False and flagTemp == 0:
