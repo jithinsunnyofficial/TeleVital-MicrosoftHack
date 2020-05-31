@@ -5,7 +5,7 @@
 ## Description
 TeleVital is an AI powered platform designed to help users do preliminary analysis for COVID-19 contraction (COVID-19 assessment test, Vitals test) right at the comfort of their homes.  
 
-TeleVital also provides a platform for hospital / doctors to prioritise on their patients based on their criticality and email patients.
+TeleVital also provides a platform for hospital / doctors to prioritise on their patients based on their criticality and schedule appointments. Further patients are able to take video consulations with their preferred doctor through the platform.
 
 ## Components of TeleVital Platform
 1. **AI Chatbot:**  	
