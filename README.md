@@ -4,6 +4,9 @@
 ![homepage](homepage.png)
 
 **TeleVital WebApp:** https://televital.azurewebsites.net/
+
+**TeleVital Video:** https://www.youtube.com/watch?v=dIN5DZ0KZKs&feature=youtu.be
+
 ## Description
 TeleVital is an AI powered platform designed to help users do preliminary analysis for COVID-19 contraction (COVID-19 assessment test, Vitals test, COVID-19 X-Ray Analyzer) right at the comfort of their homes.  
 
