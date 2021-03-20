@@ -30,7 +30,7 @@ gTTS-token==1.1.3
 idna==2.9
 imutils==0.5.3
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 numpy==1.18.4
 opencv-contrib-python==4.2.0.34
 playsound==1.2.2
