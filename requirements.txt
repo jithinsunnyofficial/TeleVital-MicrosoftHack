@@ -11,7 +11,7 @@ six==1.10.0
 Jinja2==2.9.6
 itsdangerous==0.24
 gevent-websocket==0.10.1
-eventlet==0.25.2
+eventlet==0.31.0
 Flask-RESTful==0.3.8
 Pyrebase==3.0.27
 azure-cognitiveservices-speech==1.12.0
