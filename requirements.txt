@@ -3,7 +3,7 @@ Flask-SocketIO==2.9.1
 gunicorn==19.7.1
 MarkupSafe==1.0
 Pillow==4.2.1
-opencv-python==3.2.0.7
+opencv-python==3.4.7.28
 Werkzeug==0.12.2
 python-socketio==1.7.7
 python-engineio==3.12.1
